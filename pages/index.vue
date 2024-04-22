@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type Swiper from 'swiper'
 import { Mousewheel, Pagination } from 'swiper'
-import { Swiper as SwiperCpn, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 const modules = ref([Pagination, Mousewheel])
@@ -23,16 +22,15 @@ $on(MITT_KEY.HEADER_SELECT_EVENT, (e: any) => {
 
 <template>
   <div class="h-screen overflow-hidden">
-    <SwiperCpn
-      class="swiper !h-screen" :modules="modules"
-      direction="vertical" :slides-per-view="1" :space-between="0"
-      :mousewheel="true" :pagination="{ clickable: true }"
-      @swiper="onSwiper" @active-index-change="activeIndexChange"
+    <div>123</div>
+    <!-- <SwiperCpn
+      class="swiper !h-screen" :modules="modules" direction="vertical" :slides-per-view="1" :space-between="0"
+      :mousewheel="true" :pagination="{ clickable: true }" @swiper="onSwiper" @active-index-change="activeIndexChange"
     >
       <SwiperSlide v-for="item in headerList" :key="item.href">
         <component :is="item.component" />
       </SwiperSlide>
-    </SwiperCpn>
+    </SwiperCpn> -->
   </div>
 </template>
 
@@ -49,7 +47,7 @@ $on(MITT_KEY.HEADER_SELECT_EVENT, (e: any) => {
   @include swiper-slide();
 }
 
-:deep(.swiper-wrapper){
+:deep(.swiper-wrapper) {
   transition: all .5s !important;
 }
 </style>

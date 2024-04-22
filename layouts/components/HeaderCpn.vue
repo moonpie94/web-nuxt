@@ -21,33 +21,34 @@ const drawerSize = computed(() => {
 
 <template>
   <div class="relative">
-    <div
-      class="grid grid-cols-12 h-19 text-white items-center absolute w-screen z-9999"
-      style="background:rgba(0,0,0,.5)"
-    >
-      <!-- 左侧部分 -->
-      <div col-span-9 md:col-span-3 text-lg md:text-xl p-6 font-500 flex items-center>
-        <i class="i-carbon-asset-view" />
-        <span ml-3>{{ COMPANY }}</span>
-      </div>
-      <!-- 中间部分 -->
-      <div hidden h-19 class="md:(col-span-6 block)">
-        <el-menu
-          :default-active="activeIndex" mode="horizontal" background-color="#cccccc"
-          :active-text-color="THEME.PRIMARY" text-color="#0f766e" style="height: calc(100% - 0px);"
-          @select="handleSelect"
-        >
-          <el-menu-item
-            v-for="(item, index) in headerList" :key="index" :index="item.href"
-            class="!text-lg !text-gray-100"
+    <div w-screen absolute z-9999 flex justify-center>
+      <div
+        mx-a
+        class="flex justify-between h-17 text-white items-center w-[1080px] z-9999"
+      >
+        <!-- 左侧部分 -->
+        <div>
+          <img src="/home/logo.png" alt="">
+        </div>
+        <!-- 中间部分 -->
+        <div h-17 flex-1>
+          <el-menu
+            :default-active="activeIndex" mode="horizontal" background-color="#cccccc"
+            :active-text-color="THEME.PRIMARY" text-color="#0f766e" style="height: calc(100% - 0px);"
+            @select="handleSelect"
           >
-            {{ item.title }}
-          </el-menu-item>
-        </el-menu>
-      </div>
-      <!-- 右侧部分 -->
-      <div col-span-3 flex justify-end mr-8>
-        <div class="i-carbon-grid text-primary text-2xl" @click="openDrawer" />
+            <el-menu-item
+              v-for="(item, index) in headerList" :key="index" :index="item.href"
+              class="!text-lg !text-gray-100"
+            >
+              {{ item.title }}
+            </el-menu-item>
+          </el-menu>
+        </div>
+        <!-- 右侧部分 -->
+        <!-- <div  col-span-3 flex justify-end mr-8>
+          <div class="i-carbon-grid text-primary text-2xl" @click="openDrawer" />
+        </div> -->
       </div>
     </div>
   </div>
@@ -80,7 +81,7 @@ const drawerSize = computed(() => {
 }
 
 :deep(.el-menu--horizontal) {
-  justify-content: center;
+  justify-content: end;
   border-bottom: unset !important;
 
   .el-menu-item {
