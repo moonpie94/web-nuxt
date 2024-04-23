@@ -6,11 +6,8 @@ const isMd = useBreakpoints(breakpointsTailwind).md
 const { $emit, MITT_KEY } = useMitt()
 const { headerList, activeIndex } = useHeader()
 const drawer = ref(false)
-const openDrawer = () => {
-  drawer.value = true
-}
+
 const handleSelect = (key: string) => {
-  // currentIndex.value = key
   $emit(MITT_KEY.HEADER_SELECT_EVENT, key)
 }
 
@@ -24,7 +21,7 @@ const drawerSize = computed(() => {
     <div w-screen absolute z-9999 flex justify-center>
       <div
         mx-a
-        class="flex justify-between h-17 text-white items-center w-[1080px] z-9999"
+        class="flex justify-between h-17  items-center w-[1080px] z-9999"
       >
         <!-- 左侧部分 -->
         <div>
@@ -34,12 +31,12 @@ const drawerSize = computed(() => {
         <div h-17 flex-1>
           <el-menu
             :default-active="activeIndex" mode="horizontal" background-color="#cccccc"
-            :active-text-color="THEME.PRIMARY" text-color="#0f766e" style="height: calc(100% - 0px);"
+            :active-text-color="THEME.PRIMARY" text-color="black" style="height: calc(100% - 0px);"
             @select="handleSelect"
           >
             <el-menu-item
               v-for="(item, index) in headerList" :key="index" :index="item.href"
-              class="!text-lg !text-gray-100"
+              class="!text-lg text-black"
             >
               {{ item.title }}
             </el-menu-item>
