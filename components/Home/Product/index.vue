@@ -36,10 +36,10 @@ const configs = [
 
 <template>
   <div class="w-full mt-12 text-center">
-    <div class="text-[27px] font-700">
+    <div class="text-9 font-700">
       产品与服务
     </div>
-    <div mt-4 text-3 class="text-[#5A5A5A]">
+    <div mt-4 class="text-[#5A5A5A] text-[14px]">
       深入了解产品细节，获取更多相关信息
     </div>
     <div class="px-[10%] mt-[84px]">
@@ -54,22 +54,22 @@ const configs = [
         <SwiperSlide v-for="item in configs" :key="item">
           <div class="item-container flex items-center flex-col p-6">
             <img :src="item.logo" class="w-[125px]" alt="">
-            <div class="text-[17px] font-700 mt-[11px]">
+            <div class="text-[23px] font-700 mt-[11px]">
               {{ item.title }}
             </div>
-            <div v-if="item.desc" class="text-[10px] text-[#848484] mt-2">
+            <div v-if="item.desc" class="text-[14px] text-[#848484] mt-2">
               {{ item.desc }}
             </div>
 
             <div class="mt-7 w-full">
-              <div class="product-label w-[63px] mx-a my-0">
+              <div class="product-label w-[73px] mx-a my-0">
                 <div class="z-999 relative">
                   产品功能
                 </div>
               </div>
               <div
                 grid
-                class="mt-4  "
+                class="mt-4"
                 :class="{
                   'grid-cols-2  gap-x-13 gap-y-4': item.funCols === 2,
                   'grid-cols-3 gap-x-2 gap-y-4': item.funCols === 3,
@@ -80,16 +80,13 @@ const configs = [
                 </div>
               </div>
 
-              <div class="product-label w-[63px] mx-a my-0 mt-7">
+              <div class="product-label w-[73px] mx-a my-0 mt-7">
                 <div class="z-999 relative">
                   交付能力
                 </div>
               </div>
 
-              <div
-                grid
-                class="mt-4  grid-cols-2 gap-y-6"
-              >
+              <div grid class="mt-4 grid-cols-2 gap-y-6">
                 <div v-for="fun in item.abilitys" :key="fun" class="ab-item">
                   {{ fun }}
                 </div>
@@ -108,7 +105,7 @@ const configs = [
 
 <style scoped lang="scss">
 .item-container {
-  height: 454px;
+  height: 583px;
   background: #ffffff;
   box-shadow: 0px 4px 17px 0px rgba(90, 114, 234, 0.06),
     0px 2px 7px 0px rgba(90, 114, 234, 0.04), 0px 1px 3px 0px rgba(90, 114, 234, 0.03);
@@ -116,7 +113,7 @@ const configs = [
   border: 1px solid rgba(217, 230, 247, 0.6118);
 }
 .product-label {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   position: relative;
 }
@@ -136,14 +133,14 @@ const configs = [
   border-radius: 6px;
   font-family: Source Han Sans CN;
   font-weight: 500;
-  font-size: 11px;
+  font-size: 15px;
   color: #3785fb;
 }
-.ab-item{
+.ab-item {
   font-family: Source Han Sans CN;
-font-weight: 400;
-font-size: 12px;
-color: #181818;
-line-height: 21px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #181818;
+  line-height: 21px;
 }
 </style>

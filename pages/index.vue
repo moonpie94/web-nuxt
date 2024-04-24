@@ -6,6 +6,8 @@
     <HomeProduct />
     <HomeAdvantage />
     <HomeSolve />
+    <HomeZhiyuan />
+    <CommonFooter />
   </div>
 </template>
 

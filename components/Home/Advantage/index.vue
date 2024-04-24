@@ -32,10 +32,10 @@ const configs = [
   <div class="mt-[55px] min-h-[513px] relative">
     <img :src="backgroundUrl" alt="" class="w-full absolute -z-1  bg-img">
     <div class="flex flex-col items-center justify-center">
-      <div class="mt-[55px] text-[27px] text-[#181818] font-bold">
+      <div class="mt-[55px] text-9 text-[#181818] font-bold">
         我们的优势
       </div>
-      <div class="mt-4 text-[10px] text-[#5A5A5A] font-400">
+      <div class="mt-4 text-[14px] text-[#5A5A5A] font-400">
         满足您的各种需求并提供更优质的用户体验
       </div>
       <div class="mt-[55px] grid grid-cols-4 px-22 gap-7">
@@ -82,14 +82,14 @@ const configs = [
 .c-title {
   font-family: Source Han Sans CN;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   color: #181818;
 }
 .c-desc {
   font-family: Source Han Sans CN;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 14px;
   color: #5a5a5a;
-  line-height: 14px;
+  line-height: 18px;
 }
 </style>

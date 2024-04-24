@@ -28,6 +28,7 @@ const right = [
   {
     logo: '/home/fangan/logo4.png',
     img: '/home/fangan/img4.jpeg',
+    mask: '/home/fangan/mask.png',
     title: '数字化服务',
     desc:
       '以客户体验为中心，持续优化服务流程和质量，提供量身定制的个性化服务。通过实时反馈机制，我们紧贴客户需求和满意度变化，不断提升服务水平，赢得客户的信赖和忠诚。',
@@ -37,10 +38,10 @@ const right = [
 
 <template>
   <div flex flex-col items-center justify-center>
-    <div class="mt-[55px] text-[27px] text-[#181818] font-bold">
+    <div class="mt-[55px] text-9 text-[#181818] font-bold">
       解决方案
     </div>
-    <div class="mt-4 text-[10px] text-[#5A5A5A] font-400 w-72">
+    <div class="mt-4 text-[14px] text-[#5A5A5A] font-400 w-[326px]">
       智能搜索工具,支持对站内全文搜索和自动补全查询个人中心页,读者可以自定义个人主页和收藏专题
     </div>
     <div class="flex gap-6 mt-10">
@@ -68,7 +69,8 @@ const right = [
           :key="item.title"
           class="relative w-[339px] h-[212px] item overflow-hidden"
         >
-          <img :src="item.img" alt="" class="absolute -z-1 w-full h-full">
+          <img :src="item.img" alt="" class="absolute -z-2 w-full h-full">
+          <img v-if="item.mask" :src="item.mask" alt="" class="absolute -z-1 w-full h-full">
           <div class="px-6 pt-5">
             <img :src="item.logo" alt="">
             <div class="title mt-5">
@@ -94,15 +96,15 @@ const right = [
 .title {
   font-family: Source Han Sans CN;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 21px;
   color: #ffffff;
   line-height: 18px;
 }
 .desc {
   font-family: Source Han Sans CN;
   font-weight: 400;
-  font-size: 9px;
+  font-size: 12px;
   color: #ffffff;
-  line-height: 14px;
+  line-height: 18px;
 }
 </style>
