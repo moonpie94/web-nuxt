@@ -52,7 +52,7 @@ const configs = [
         style="--swiper-navigation-sides-offset: 40px"
       >
         <SwiperSlide v-for="item in configs" :key="item">
-          <div class="item-container flex items-center flex-col">
+          <div class="item-container flex items-center flex-col p-6">
             <img :src="item.logo" class="w-[125px]" alt="">
             <div class="text-[17px] font-700 mt-[11px]">
               {{ item.title }}
@@ -61,17 +61,36 @@ const configs = [
               {{ item.desc }}
             </div>
 
-            <div class="mt-7">
-              <div class="product-label">
+            <div class="mt-7 w-full">
+              <div class="product-label w-[63px] mx-a my-0">
                 <div class="z-999 relative">
                   产品功能
                 </div>
               </div>
               <div
                 grid
-                :class="{ 'grid-cols-2': item.funCols === 2, 'grid-cols-3': item.funCols === 3 }"
+                class="mt-4  "
+                :class="{
+                  'grid-cols-2  gap-x-13 gap-y-4': item.funCols === 2,
+                  'grid-cols-3 gap-x-2 gap-y-4': item.funCols === 3,
+                }"
               >
-                <div v-for="fun in item.functions" :key="fun">
+                <div v-for="fun in item.functions" :key="fun" class="grid-item">
+                  {{ fun }}
+                </div>
+              </div>
+
+              <div class="product-label w-[63px] mx-a my-0 mt-7">
+                <div class="z-999 relative">
+                  交付能力
+                </div>
+              </div>
+
+              <div
+                grid
+                class="mt-4  grid-cols-2 gap-y-6"
+              >
+                <div v-for="fun in item.abilitys" :key="fun" class="ab-item">
                   {{ fun }}
                 </div>
               </div>
@@ -80,12 +99,16 @@ const configs = [
         </SwiperSlide>
       </Swiper>
     </div>
+
+    <ElButton type="primary" size="large" class="mt-6">
+      了解更多
+    </ElButton>
   </div>
 </template>
 
 <style scoped lang="scss">
 .item-container {
-  height: 434px;
+  height: 454px;
   background: #ffffff;
   box-shadow: 0px 4px 17px 0px rgba(90, 114, 234, 0.06),
     0px 2px 7px 0px rgba(90, 114, 234, 0.04), 0px 1px 3px 0px rgba(90, 114, 234, 0.03);
@@ -106,5 +129,21 @@ const configs = [
   position: absolute;
   bottom: 0;
   left: 0;
+}
+.grid-item {
+  padding: 7px 0;
+  background: #f0f8ff;
+  border-radius: 6px;
+  font-family: Source Han Sans CN;
+  font-weight: 500;
+  font-size: 11px;
+  color: #3785fb;
+}
+.ab-item{
+  font-family: Source Han Sans CN;
+font-weight: 400;
+font-size: 12px;
+color: #181818;
+line-height: 21px;
 }
 </style>

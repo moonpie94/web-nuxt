@@ -4,6 +4,8 @@
   <div class="h-screen  overflow-auto">
     <HomeFirst />
     <HomeProduct />
+    <HomeAdvantage />
+    <HomeSolve />
   </div>
 </template>
 
