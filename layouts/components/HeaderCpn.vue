@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { THEME } from '@/constants/unocss'
-import { COMPANY } from '~~/enums/appEnum'
 const isMd = useBreakpoints(breakpointsTailwind).md
 const { $emit, MITT_KEY } = useMitt()
 const { headerList, activeIndex } = useHeader()
 const drawer = ref(false)
 
 const handleSelect = (key: string) => {
-  $emit(MITT_KEY.HEADER_SELECT_EVENT, key)
+  // $emit(MITT_KEY.HEADER_SELECT_EVENT, key)
 }
 
 const drawerSize = computed(() => {
@@ -30,7 +29,8 @@ const drawerSize = computed(() => {
         <!-- 中间部分 -->
         <div h-17 flex-1>
           <el-menu
-            :default-active="activeIndex" mode="horizontal" background-color="#cccccc"
+
+            mode="horizontal" background-color="#cccccc"
             :active-text-color="THEME.PRIMARY" text-color="black" style="height: calc(100% - 0px);"
             @select="handleSelect"
           >
@@ -49,26 +49,6 @@ const drawerSize = computed(() => {
       </div>
     </div>
   </div>
-  <el-drawer v-model="drawer" :with-header="false" append-to-body :z-index="10000" direction="ltr" :size="drawerSize">
-    <div class="flex items-center flex-col text-gray-6">
-      <div class="my-0 md:(my-2)">
-        {{ COMPANY }}
-      </div>
-      <el-divider />
-      <img src="/qrCode.png" class="w-50 h-50">
-      <div class="my-4 text-sm">
-        个人学习网站，欢迎阅览指正
-      </div>
-      <el-divider />
-      <img src="/github.png" class="w-50 h-50">
-      <div class="my-4 text-sm text-center">
-        <div>项目开源地址</div>
-        <div>
-          如果对您有帮助，麻烦给个<span class="text-red-5 font-700 text-xl">Star</span>
-        </div>
-      </div>
-    </div>
-  </el-drawer>
 </template>
 
 <style scoped lang='scss'>

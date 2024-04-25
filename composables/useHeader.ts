@@ -1,60 +1,47 @@
 import { MITT_KEY_ENUM } from '@/enums/mittEnum'
 
-import HomeFirst from '@/components/Home/First/index.vue'
-import HomeBusiness from '@/components/Home/Business/index.vue'
-import HomeQuality from '@/components/Home/Quality/index.vue'
-import HomeData from '@/components/Home/Data/index.vue'
-import HomeTechnology from '@/components/Home/Technology/index.vue'
-import HomeAbout from '@/components/Home/About/index.vue'
-
 const { $emit } = useMitt()
 interface HeaderItem {
   href: string
   title: string
   eventKey: string
-  component: any
+  component?: any
 }
 const headerList: HeaderItem[] = [
   {
     href: 'HomeFirst',
     title: '首页',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_HOME,
-    component: HomeFirst,
   },
   {
     href: 'HomeBusiness',
-    title: '业务',
+    title: '我们的优势',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_BUSINESS,
-    component: HomeBusiness,
 
   },
   {
     href: 'HomeQuality',
-    title: '品质',
+    title: '解决方案',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_QUALITY,
-    component: HomeQuality,
 
   },
 
   {
     href: 'HomeData',
-    title: '数据',
+    title: '资源中心',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_DATA,
-    component: HomeData,
 
   },
   {
     href: 'HomeTechnology',
-    title: '技术',
+    title: '关于我们',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_TECHNOLOGY,
-    component: HomeTechnology,
 
   },
   {
     href: 'HomeAbout',
-    title: '关于',
+    title: '联系我们',
     eventKey: MITT_KEY_ENUM.CHANGE_TO_ABOUT,
-    component: HomeAbout,
 
   },
 
