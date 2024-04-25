@@ -3,40 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { Autoplay, Keyboard, Pagination } from 'swiper'
-import type CarouselVertical from '~~/components/Home/First/CarouselVertical.vue'
-import type CarouselHorizontal from '~~/components/Home/First/CarouselHorizontal.vue'
 
-type CarouselVerticalInstance = InstanceType<typeof CarouselVertical>
-type CarouselHorizontalInstance = InstanceType<typeof CarouselHorizontal>
+const { MITT_KEY, $emit } = useMitt()
 
-const firstRef = ref<CarouselVerticalInstance | null>(null)
-const secondRef = ref<CarouselVerticalInstance | null>(null)
-const thirdRef = ref<CarouselHorizontalInstance | null>(null)
-const { $on, MITT_KEY } = useMitt()
-$on(MITT_KEY.CHANGE_TO_HOME, () => {
-  firstRef.value?.restart()
-  secondRef.value?.restart()
-  thirdRef.value?.restart()
-})
 const modules = ref([Pagination, Autoplay, Keyboard])
 const swiperEvt = (e: any) => {
-  switch (e.activeIndex) {
-    case 0: {
-      firstRef.value?.restart()
-      break
-    }
-    case 1: {
-      secondRef.value?.restart()
-      break
-    }
-    case 2: {
-      thirdRef.value?.restart()
-      break
-    }
-    default: {
-      break
-    }
-  }
+  $emit(MITT_KEY.BANNER_CHANGE, e.activeIndex)
 }
 
 const config = ['/banner/banner02.jpg', '/banner/banner03.jpg']
