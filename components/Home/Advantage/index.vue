@@ -29,22 +29,22 @@ const configs = [
 </script>
 
 <template>
-  <div class="mt-[55px] min-h-[513px] relative">
+  <div class="mt-[55px] min-h-[584px] relative">
     <img :src="backgroundUrl" alt="" class="w-full absolute -z-1  bg-img">
-    <div class="flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center justify-center w-[1080px] mx-a">
       <div class="mt-[55px] text-9 text-[#181818] font-bold">
         我们的优势
       </div>
       <div class="mt-4 text-[14px] text-[#5A5A5A] font-400">
         满足您的各种需求并提供更优质的用户体验
       </div>
-      <div class="mt-[55px] grid grid-cols-4 px-22 gap-7">
+      <div class="mt-[55px] grid grid-cols-4   gap-7">
         <div
           v-for="item in configs"
           :key="item.title"
-          class="min-h-[257px] c-item flex flex-col justify-center items-center"
+          class="min-h-[344px] c-item flex flex-col  items-center"
         >
-          <img :src="item.img" alt="" class="w-[142px]">
+          <img :src="item.img" alt="" class="w-[98px] mt-[62px]">
           <div class="c-title px-4 mt-6">
             {{ item.title }}
           </div>
@@ -84,6 +84,7 @@ const configs = [
   font-weight: bold;
   font-size: 18px;
   color: #181818;
+  text-align: center;
 }
 .c-desc {
   font-family: Source Han Sans CN;

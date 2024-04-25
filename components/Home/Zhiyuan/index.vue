@@ -22,14 +22,14 @@ const configs = [
 </script>
 
 <template>
-  <div class="h-[720px] wrap relative">
+  <div class="h-[720px] wrap relative w-full overflow-x-hidden">
     <img src="/home/ziyuan/ball.png" alt="" class="w-[100px] absolute -left-6 bottom-6">
     <img src="/home/ziyuan/ball.png" alt="" class="w-[150px] absolute -right-8 top-6">
-    <div flex flex-col items-center justify-center>
+    <div flex flex-col items-center justify-center class="w-[1080px] mx-a">
       <div class="mt-[77px] text-9 text-[#181818] font-bold">
         资源中心
       </div>
-      <div class="grid grid-cols-3 gap-8 px-25 mt-24 h-[289px]">
+      <div class="grid grid-cols-3 gap-12  mt-24 h-[386px]">
         <div v-for="item in configs" :key="item.title" class="bg-white  rounded-[17px]  flex flex-col  items-center gap-[20px]">
           <img :src="item.img" alt="" class="w-[75px] mt-7">
           <div class="text-[20px] font-500">

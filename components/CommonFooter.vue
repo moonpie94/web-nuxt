@@ -63,6 +63,12 @@ const configs = [
     ],
   },
 ]
+
+const footerConfigs = [
+  { title: 'FAQ' }, { title: '条款和条件' },
+  { title: '隐私政策' },
+
+]
 </script>
 
 <template>
@@ -85,13 +91,45 @@ const configs = [
       </div>
     </div>
 
-    <div class="h-[323px] mt-[31px] px-25">
-      <div>
-        <div>logo</div>
-        <div>上海舟轻云上科技有限公司</div>
-        <div>xxxxx</div>
+    <div class="w-[1080px] mt-[31px] mx-a">
+      <div class="py-[110px] flex gap-[164px]">
+        <div>
+          <div>logo</div>
+          <div class="text-[#5A5A5A] text-[14px] mt-[22px]">
+            上海舟轻云上科技有限公司
+          </div>
+          <div class="mt-13">
+            xxxxx
+          </div>
+        </div>
+
+        <div class="flex flex-1 justify-between">
+          <div v-for="item in configs" :key="item.title">
+            <div class="text-[18px] text-[#2548C3] mb-7">
+              {{ item.title }}
+            </div>
+            <div class="flex gap-4 flex-col">
+              <div v-for="child in item.children" :key="child.title">
+                <div class="text-[14px] text-[#5A5A5A]">
+                  {{ child.title }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div />
       </div>
-      <div />
+    </div>
+
+    <div class="bg-[#2548C3] h-[114px]">
+      <div class="w-[1080px] text-white flex justify-between  items-center h-full mx-a">
+        <div>@2024</div>
+        <div flex flex-row gap-6>
+          <div v-for="item in footerConfigs" :key="item.title">
+            {{ item.title }}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

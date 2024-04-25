@@ -35,71 +35,76 @@ const configs = [
 </script>
 
 <template>
-  <div class="w-full mt-12 text-center">
-    <div class="text-9 font-700">
-      产品与服务
-    </div>
-    <div mt-4 class="text-[#5A5A5A] text-[14px]">
-      深入了解产品细节，获取更多相关信息
-    </div>
-    <div class="px-[10%] mt-[84px]">
-      <Swiper
-        class="swiper w-full !h-auto !overflow-y-visible"
-        :slides-per-view="3"
-        :loop="true"
-        :modules="modules"
-        :space-between="17"
-        style="--swiper-navigation-sides-offset: 40px"
-      >
-        <SwiperSlide v-for="item in configs" :key="item">
-          <div class="item-container flex items-center flex-col p-6">
-            <img :src="item.logo" class="w-[125px]" alt="">
-            <div class="text-[23px] font-700 mt-[11px]">
-              {{ item.title }}
+  <div class="w-full mt-12 flex justify-center text-center relative">
+    <img src="/home/ziyuan/ball.png" alt="" class="w-[150px] absolute -left-18 top-10">
+    <div class="w-[1080px] flex flex-col justify-center">
+      <div class="text-9 font-700">
+        产品与服务
+      </div>
+      <div mt-4 class="text-[#5A5A5A] text-[14px]">
+        深入了解产品细节，获取更多相关信息
+      </div>
+      <div class="mt-[84px]">
+        <Swiper
+          class="swiper w-full !h-auto !overflow-y-visible"
+          :slides-per-view="3"
+          :loop="true"
+          :modules="modules"
+          :space-between="17"
+          style="--swiper-navigation-sides-offset: 40px"
+        >
+          <SwiperSlide v-for="item in configs" :key="item">
+            <div class="item-container flex items-center flex-col p-6">
+              <img :src="item.logo" class="w-[125px]" alt="">
+              <div class="text-[23px] font-700 mt-[11px]">
+                {{ item.title }}
+              </div>
+              <div v-if="item.desc" class="text-[14px] text-[#848484] mt-2">
+                {{ item.desc }}
+              </div>
+
+              <div class="mt-7 w-full">
+                <div class="product-label w-[73px] mx-a my-0">
+                  <div class="z-999 relative">
+                    产品功能
+                  </div>
+                </div>
+                <div
+                  grid
+                  class="mt-4"
+                  :class="{
+                    'grid-cols-2  gap-x-13 gap-y-4': item.funCols === 2,
+                    'grid-cols-3 gap-x-2 gap-y-4': item.funCols === 3,
+                  }"
+                >
+                  <div v-for="fun in item.functions" :key="fun" class="grid-item">
+                    {{ fun }}
+                  </div>
+                </div>
+
+                <div class="product-label w-[73px] mx-a my-0 mt-7">
+                  <div class="z-999 relative">
+                    交付能力
+                  </div>
+                </div>
+
+                <div grid class="mt-4 grid-cols-2 gap-y-6">
+                  <div v-for="fun in item.abilitys" :key="fun" class="ab-item">
+                    {{ fun }}
+                  </div>
+                </div>
+              </div>
             </div>
-            <div v-if="item.desc" class="text-[14px] text-[#848484] mt-2">
-              {{ item.desc }}
-            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
 
-            <div class="mt-7 w-full">
-              <div class="product-label w-[73px] mx-a my-0">
-                <div class="z-999 relative">
-                  产品功能
-                </div>
-              </div>
-              <div
-                grid
-                class="mt-4"
-                :class="{
-                  'grid-cols-2  gap-x-13 gap-y-4': item.funCols === 2,
-                  'grid-cols-3 gap-x-2 gap-y-4': item.funCols === 3,
-                }"
-              >
-                <div v-for="fun in item.functions" :key="fun" class="grid-item">
-                  {{ fun }}
-                </div>
-              </div>
-
-              <div class="product-label w-[73px] mx-a my-0 mt-7">
-                <div class="z-999 relative">
-                  交付能力
-                </div>
-              </div>
-
-              <div grid class="mt-4 grid-cols-2 gap-y-6">
-                <div v-for="fun in item.abilitys" :key="fun" class="ab-item">
-                  {{ fun }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      <div>
+        <ElButton type="primary" size="large" class="mt-6">
+          了解更多
+        </ElButton>
+      </div>
     </div>
-
-    <ElButton type="primary" size="large" class="mt-6">
-      了解更多
-    </ElButton>
   </div>
 </template>
 

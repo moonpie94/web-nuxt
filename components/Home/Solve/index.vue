@@ -37,52 +37,55 @@ const right = [
 </script>
 
 <template>
-  <div flex flex-col items-center justify-center>
-    <div class="mt-[55px] text-9 text-[#181818] font-bold">
-      解决方案
-    </div>
-    <div class="mt-4 text-[14px] text-[#5A5A5A] font-400 w-[326px]">
-      智能搜索工具,支持对站内全文搜索和自动补全查询个人中心页,读者可以自定义个人主页和收藏专题
-    </div>
-    <div class="flex gap-6 mt-10">
-      <div class="flex gap-6 flex-col">
-        <div
-          v-for="item in left"
-          :key="item.title"
-          class="relative w-[339px] h-[212px] item overflow-hidden"
-        >
-          <img :src="item.img" alt="" class="h-full absolute -z-1 w-full">
-          <div class="px-6 pt-5">
-            <img :src="item.logo" alt="" class=" ">
-            <div class="title mt-5">
-              {{ item.title }}
+  <div flex flex-col items-center justify-center w-full>
+    <div class="w-[1080px] mx-a flex items-center flex-col">
+      <div class="mt-[55px] text-9 text-[#181818] font-bold">
+        解决方案
+      </div>
+      <div class="mt-4 text-[14px] text-[#5A5A5A] font-400 w-[326px]">
+        智能搜索工具,支持对站内全文搜索和自动补全查询个人中心页,读者可以自定义个人主页和收藏专题
+      </div>
+      <div class="flex gap-7 mt-10">
+        <div class="flex gap-7 flex-col">
+          <div
+            v-for="item in left"
+            :key="item.title"
+            class="relative w-[452px] h-[240px] item overflow-hidden"
+          >
+            <img :src="item.img" alt="" class="h-full absolute -z-1 w-full">
+            <div class="px-6 pt-5">
+              <img :src="item.logo" alt="" class=" ">
+              <div class="title mt-5">
+                {{ item.title }}
+              </div>
+              <div class="desc mt-3">
+                {{ item.desc }}
+              </div>
             </div>
-            <div class="desc mt-3">
-              {{ item.desc }}
+          </div>
+        </div>
+        <div class="flex gap-7 flex-col mt-6">
+          <div
+            v-for="item in right"
+            :key="item.title"
+            class="relative w-[452px] h-[240px] item overflow-hidden"
+          >
+            <img :src="item.img" alt="" class="absolute -z-2 w-full h-full">
+            <img v-if="item.mask" :src="item.mask" alt="" class="absolute -z-1 w-full h-full">
+            <div class="px-6 pt-5">
+              <img :src="item.logo" alt="">
+              <div class="title mt-5">
+                {{ item.title }}
+              </div>
+              <div class="desc mt-3">
+                {{ item.desc }}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="flex gap-6 flex-col mt-6">
-        <div
-          v-for="item in right"
-          :key="item.title"
-          class="relative w-[339px] h-[212px] item overflow-hidden"
-        >
-          <img :src="item.img" alt="" class="absolute -z-2 w-full h-full">
-          <img v-if="item.mask" :src="item.mask" alt="" class="absolute -z-1 w-full h-full">
-          <div class="px-6 pt-5">
-            <img :src="item.logo" alt="">
-            <div class="title mt-5">
-              {{ item.title }}
-            </div>
-            <div class="desc mt-3">
-              {{ item.desc }}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
+
     <img src="/home/fangan/b-bg.png" alt="" class="h-[200px] w-full">
   </div>
 </template>
