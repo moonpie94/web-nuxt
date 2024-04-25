@@ -77,7 +77,7 @@ const configs = [
           :modules="modules"
           :space-between="17"
           :autoplay="{
-            delay: 3000000,
+            delay: 3000,
             disableOnInteraction: false,
           }"
           style="--swiper-navigation-sides-offset: 40px"
