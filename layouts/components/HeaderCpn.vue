@@ -47,6 +47,14 @@ const drawerSize = computed(() => {
             </el-menu-item>
           </el-menu>
         </div>
+        <div>
+          <ElButton size="large" plain class="!bg-transparent">
+            登录
+          </ElButton>
+          <ElButton size="large">
+            注册
+          </ElButton>
+        </div>
         <!-- 右侧部分 -->
         <!-- <div  col-span-3 flex justify-end mr-8>
           <div class="i-carbon-grid text-primary text-2xl" @click="openDrawer" />

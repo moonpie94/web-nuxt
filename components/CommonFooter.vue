@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 const question = ref('')
+const tel = ref('')
 const configs = [
   {
     title: '公司',
@@ -64,11 +65,33 @@ const configs = [
   },
 ]
 
-const footerConfigs = [
-  { title: 'FAQ' }, { title: '条款和条件' },
-  { title: '隐私政策' },
+const footerConfigs = [{ title: 'FAQ' }, { title: '条款和条件' }, { title: '隐私政策' }]
 
-]
+const submit = async () => {
+  const MEIQIA_VISIT_ID = localStorage.getItem('MEIQIA_VISIT_ID')
+  const MEIQIA_TRACK_ID = localStorage.getItem('MEIQIA_TRACK_ID')
+
+  await $fetch(
+    'https://new-api.meiqia.com/client/tickets_v2?ent_id=a6225e66f7e952884aefe82967ef0dac', {
+      method: 'POST',
+      body: {
+        enterprise_id: 'a6225e66f7e952884aefe82967ef0dac',
+        track_id: MEIQIA_TRACK_ID,
+        visit_id: MEIQIA_VISIT_ID,
+        channel: 'widget',
+        content: question.value,
+        photo: [],
+        client_info: {
+          tel: tel.value,
+        },
+        reserve_token: null,
+      },
+    },
+  ).catch(error => ElMessage.error(error.message))
+  question.value = ''
+  tel.value = ''
+  ElMessage.success('提交成功')
+}
 </script>
 
 <template>
@@ -87,7 +110,10 @@ const footerConfigs = [
         />
       </div>
       <div class="flex mt-[10px] justify-between w-[328px] gap-[7px]">
-        <el-input placeholder="请输入您的电话" /> <el-button>立即提交</el-button>
+        <el-input v-model="tel" placeholder="请输入您的电话" />
+        <el-button @click="submit">
+          立即提交
+        </el-button>
       </div>
     </div>
 
@@ -122,7 +148,7 @@ const footerConfigs = [
     </div>
 
     <div class="bg-[#2548C3] h-[114px]">
-      <div class="w-[1080px] text-white flex justify-between  items-center h-full mx-a">
+      <div class="w-[1080px] text-white flex justify-between items-center h-full mx-a">
         <div>@2024</div>
         <div flex flex-row gap-6>
           <div v-for="item in footerConfigs" :key="item.title">
